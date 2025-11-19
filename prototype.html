@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+
+    <style>
+        :root {
+            --primary: #4a60ff;
+            --dark: #0f0f15;
+            --light: #ffffff;
+            --gray: #d5d5d5;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            background: var(--light);
+            color: var(--dark);
+        }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            position: fixed;
+            top: 0;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            transition: background-color 0.3s ease;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        nav .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav .links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 5% 120px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 28px;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            animation: fadeInUp 1.8s ease;
+        }
+
+        /* PROJECTS */
+        .projects {
+            padding: 80px 5%;
+            background: #f5f5f5;
+        }
+
+        .projects h2 {
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform .3s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+        }
+
+        .project img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* ABOUT */
+        .about {
+            padding: 80px 5%;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+        }
+
+        .about p {
+            max-width: 700px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* CONTACT */
+        .contact {
+            padding: 80px 5%;
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+
+        .contact a {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start; /* Aligns items to the left */
+                gap: 10px;
+            }
+
+            nav .logo {
+                order: 1; /* Ensure logo stays at the top */
+            }
+
+            nav .links {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start; /* Align links to the left */
+                gap: 15px;
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            nav .links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+                order: 0; /* Place the hamburger menu at the top */
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                padding: 10px 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="logo"><strong>addisu goraw</strong></div>
+        <div class="links" id="navLinks">
+            <a href="#hero">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <h1>Hello, I'm <span style="color: var(--primary);">Addisu</span></h1>
+        <p>A Frontend Developer | Designer | Creator</p>
+        <a href="#projects" class="btn">View My Work</a>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>Featured Projects</h2>
+
+        <div class="project-grid">
+            <div class="project">
+                <img src="https://via.placeholder.com/400x250" alt="">
+                <h3>Project One</h3>
+                <p>maths solver.</p>
+            </div>
+
+            <div class="project">
+                <img src="https://via.placeholder.com/400x250" alt="">
+                <h3>Project Two</h3>
+                <p>Science Experiment Documentation.</p>
+            </div>
+
+            <div class="project">
+                <img src="https://via.placeholder.com/400x250" alt="">
+                <h3>Project Three</h3>
+                <p>Book Review Blog.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>
+            <section id="about" class="about">
+                <h2>About Me</h2>
+                <p>
+                    My name is <strong>Addisu Goraw</strong>, and I am a <strong>Grade 12 student</strong> with a strong passion for learning and personal growth.<br>
+                    I have a particular interest in <strong>science, mathematics, and technology</strong>, and I consistently strive to achieve excellence in my academic work.<br>
+                    I am always eager to explore new ideas, take on challenges, and contribute to my community through school activities and projects.<br>
+                    Outside of the classroom, I enjoy engaging in <strong>sports, coding, and volunteer work</strong>, which help me build both my skills and character.<br>
+                    As I approach the next chapter of my life, I am excited to explore further opportunities to expand my knowledge and make a positive impact in the world.
+                </p>
+            </section>
+            
+        </p>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p>Email me at <a href="#">addisu84@email.com</a></p>
+    </section>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
